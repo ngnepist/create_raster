@@ -6,47 +6,15 @@
 #include <vector>
 #include <algorithm>
 #include "proj.h"
-#include "pixel.h"
-#include "pgma_io.h"
+#include "point_MNT.h"
+#include "matrix_image.h"
+#include "pgm_io.h"
+#include "ppm_io.h"
 
 using namespace std;
 
-struct Matrix_image {
-     int *garray;
-     int xsize;
-     int ysize;
-};
 
-
-void readdata(const string& file_name, vector<Pixel>& v_Pixel)
-{
-
-    ifstream f(file_name);
-
-    if(!f.is_open())
-       cout << "Sorry! Open file failed." << endl;
-
-    cout << "start reading" <<endl;
-    while(!f.eof()) // eof: end of file
-    { 
-        Pixel *p = new Pixel(0,0,0);
-        f >> *p;  // lecture du pixel
-
-        if(f.eof()) // if end of file reached at this position...
-        {
-          delete p;
-          break; // ...the reading is finish
-        }
-        v_Pixel.push_back(*p);
-        //cout << p->p_lat << endl;
-        //cout << p->p_longi << endl;
-    }
-    f.close();
-    cout << "reading completed" <<endl;
-}
-
-int projection(vector<Pixel>& v_Pixel)
-{
+int projection(vector<Point>& v_Point){
     /*les variables pour la projection*/
     PJ_CONTEXT *C;
     PJ *P;
@@ -77,24 +45,25 @@ int projection(vector<Pixel>& v_Pixel)
     P = P_for_GIS;
 
     cout << "start projecting" <<endl;
-    for(std::size_t i = 0; i < v_Pixel.size(); ++i) {
+    for(std::size_t i = 0; i < v_Point.size(); ++i) {
         //std::cout << v[i] << "\n";
 
         /* a coordinate union representing Copenhagen: 55d N, 12d E    */
         /* Given that we have used proj_normalize_for_visualization(), the order of*/
         /* coordinates is longitude, latitude, and values are expressed in degrees. */
         //a = proj_coord (longi, lat, 0, 0);
-        a = proj_coord (v_Pixel[i].p_longi, v_Pixel[i].p_lat, 0, 0);
+        a = proj_coord (v_Point[i].p_longi, v_Point[i].p_lat, 0, 0);
 
         /* transform to UTM zone 32, then back to geographical */
         b = proj_trans (P, PJ_FWD, a);
         //printf ("easting: %.3f, northing: %.3f\n", b.enu.e, b.enu.n);
         //b = proj_trans (P, PJ_INV, b);
         //printf ("longitude: %g, latitude: %g\n", b.lp.lam, b.lp.phi);
-        v_Pixel[i].p_x = b.enu.e;
-        v_Pixel[i].p_y = b.enu.n;
+        v_Point[i].p_x = b.enu.e;
+        v_Point[i].p_y = b.enu.n;
         //printf ("easting: %.3f, northing: %.3f\n", v_Pixel[i].p_x, v_Pixel[i].p_y);
     }
+    ///printf ("easting: %.3f, northing: %.3f\n", b.enu.e, b.enu.n);
     cout << "projecting completed" <<endl;
         /* Clean up */
     proj_destroy (P);
@@ -103,129 +72,162 @@ int projection(vector<Pixel>& v_Pixel)
 
 }
 
-bool compx(const Pixel& p1, const Pixel& p2){
-    return p1.p_x<p2.p_x;
-}
 
-bool compy(const Pixel& p1, const Pixel& p2){
-    return p1.p_y<p2.p_y;
-}
+void setup_relatif_coordinate(vector<Point>& v_Point){
 
-double round(double value) {
-     return floor(value + 0.5);
-}
+    float minElement_x = (*std::min_element(v_Point.begin(), v_Point.end(), compx)).p_x;
+    float minElement_y = (*std::min_element(v_Point.begin(), v_Point.end(), compy)).p_y;
 
-void setup_index_pixel(vector<Pixel>& v_Pixel, int xsize, int ysize){
-
-    float minElement_x = (*std::min_element(v_Pixel.begin(), v_Pixel.end(), compx)).p_x;
-    float maxElement_x = (*std::max_element(v_Pixel.begin(), v_Pixel.end(), compx)).p_x;
-    float minElement_y = (*std::min_element(v_Pixel.begin(), v_Pixel.end(), compy)).p_y;
-    float maxElement_y = (*std::max_element(v_Pixel.begin(), v_Pixel.end(), compy)).p_y;
-
-    cout << "start setup_index_pixel" <<endl;
-    for(std::size_t i = 0; i < v_Pixel.size(); ++i) {
+    for(std::size_t i = 0; i < v_Point.size(); ++i) {
         //std::cout << v[i] << "\n";
 
-        v_Pixel[i].p_i =(int) (round((xsize - 0)*(v_Pixel[i].p_x - minElement_x)/(maxElement_x - minElement_x)));
-        v_Pixel[i].p_j = (int) (round((ysize - 0)*(v_Pixel[i].p_y - minElement_y)/(maxElement_y - minElement_y)));
-        printf ("i: %.3f, j: %.3f\n", v_Pixel[i].p_i, v_Pixel[i].p_j);
+        v_Point[i].p_x_relatif =v_Point[i].p_x - minElement_x;
+        v_Point[i].p_y_relatif = v_Point[i].p_y - minElement_y;
+        //printf ("x_relatif: %.3f, y_relatif: %.3f\n", v_Pixel[i].p_x_relatif, v_Pixel[i].p_y_relatif);
+    }
+
+}
+
+
+void setup_index_pixel(vector<Point>& v_Point, Matrix_image& matrix){
+
+    float minElement_x = (*std::min_element(v_Point.begin(), v_Point.end(), compx)).p_x;
+    float maxElement_x = (*std::max_element(v_Point.begin(), v_Point.end(), compx)).p_x;
+    float minElement_y = (*std::min_element(v_Point.begin(), v_Point.end(), compy)).p_y;
+    float maxElement_y = (*std::max_element(v_Point.begin(), v_Point.end(), compy)).p_y;
+
+    float amplitude_valeur_x = maxElement_x - minElement_x;
+    float amplitude_valeur_y = maxElement_y - minElement_y;
+
+    float peroide_x = amplitude_valeur_x / matrix.xsize;
+    float peroide_y = amplitude_valeur_y / matrix.ysize;
+
+    cout << "start setup_index_pixel" <<endl;
+    for(std::size_t i = 0; i < v_Point.size(); ++i) {
+        //std::cout << v[i] << "\n";
+
+        v_Point[i].p_i = floor(v_Point[i].p_x_relatif / peroide_x);
+        v_Point[i].p_j = floor(v_Point[i].p_y_relatif / peroide_y);
+        if (v_Point[i].p_j == matrix.ysize){
+            v_Point[i].p_j = matrix.ysize - 1 ;
+        }
+        if (v_Point[i].p_i == matrix.xsize){
+            v_Point[i].p_i = matrix.xsize - 1; 
+        }
+       // printf ("i: %.3f, j: %.3f\n", v_Pixel[i].p_i, v_Pixel[i].p_j);
     }
     cout << "setup_index_pixel completed" <<endl;
 
 }
 
-void setup_value_pixel(Matrix_image& matrix, vector<Pixel>& v_Pixel){
-    int i;
-    int *indexg;
-    int j;
-    float S;
-    vector<Pixel> v_Pixel_to_print;
 
-    indexg = matrix.garray;
+void setup_value_pixel(Matrix_image& matrix, vector<Point>& v_Point){
 
+    int i, j;
+    float val;
+    //vector<Point> v_Point_to_print;
+
+    float minElement_z = (*std::min_element(v_Point.begin(), v_Point.end(), compz)).p_level;
+    float maxElement_z = (*std::max_element(v_Point.begin(), v_Point.end(), compz)).p_level;
+
+    cout << "start normalisation of pixel values" <<endl;
+
+    for(std::size_t k = 0; k < v_Point.size(); ++k) {
+        //std::cout << v[i] << "\n";
+
+        //cout << "running please wait i = "<<i<<", j = "<<j<<endl;
+
+        //f = (v_Point[k].p_level-minElement_z)/(maxElement_z-minElement_z);
+        //v_Point[k].p_level = (int) (255 * f) ;
+
+        v_Point[k].p_level = (v_Point[k].p_level-minElement_z)/(maxElement_z-minElement_z);
+
+    }
+
+    cout << "normalisation of pixel values finish" <<endl;
 
     cout << "start setup_value_pixel" <<endl;
-    for ( j = 0; j < matrix.ysize; j++ )
-    {
-        for ( i = 0; i < matrix.xsize; i++ )
-        {
-            cout << "running please wait i = "<<i<<", j = "<<j<<endl;
-            for(std::size_t k = 0; k < v_Pixel.size(); ++k) 
-            {
-                //std::cout << v[i] << "\n";
-                if (v_Pixel[k].p_i == i && v_Pixel[k].p_j == j){
-                    v_Pixel_to_print.push_back(v_Pixel[k]);
-                }
-            }
+            
+    for(std::size_t k = 0; k < v_Point.size(); ++k) {
+        //std::cout << v[i] << "\n";
 
-            if ((unsigned) (v_Pixel_to_print.size()) >= 1)
-            {
+        //cout <<"k = "<< v_Pixel.size() - k <<endl;
 
-                for(std::size_t k = 0; k < v_Pixel_to_print.size(); ++k) 
-                {
-                    //std::cout << v[i] << "\n";
-                    S += v_Pixel_to_print[k].p_level;
-                }
-                S = S/(v_Pixel_to_print.size());
+        i = v_Point[k].p_i;
+        j = v_Point[k].p_j;
 
-                *indexg = ( int ) (round(abs(S)));
- 
-                indexg = indexg + 1;
-            }
-            vector<Pixel>().swap(v_Pixel_to_print);
-            S=0;
-        }
+        cout << "running please wait i = "<<i<<", j = "<<j<<endl;
+
+        val = abs (v_Point[k].p_level);
+        matrix.tab_pixel[j][i].set_val (val);
+
     }
     cout << "setup_value_pixel completed" <<endl;
 
-  return;
+    return;
+
 }
-
-void init_Matrix_image(Matrix_image& matrix, int xsize, int ysize){
-    int i;
-    int *indexg;
-    int j;
-
-    matrix.garray = new int[xsize * ysize];
-    matrix.xsize = xsize;
-    matrix.ysize = ysize;
-
-    indexg = matrix.garray;
-
-    cout << "init_Matrix_image starting" <<endl;
-    for ( i = 0; i < matrix.ysize; i++ )
-    {
-        for ( j = 0; j < matrix.xsize; j++ )
-        {
-
-            *indexg = 0;
- 
-            indexg = indexg + 1;
-        }
-    }
-    cout << "init_Matrix_image completed" <<endl;
-}
-
 
 
 //---------------Main------------------
-int main()
+int main(int argc, char *argv[])
 {
     int xsize=800;
     int ysize=753;
-    vector<Pixel> v_Pixel;
+    string file_name = "../doc/datalonglat.txt";
+    string texte_de_fin = "la taille de l'image est ";
+    vector<Point> v_Point;
     Matrix_image matrix;
+
+
+    if (argc == 4){
+        file_name = argv[1];
+        xsize = atoi(argv[2]);
+        ysize = atoi(argv[3]);
+    }
+    else if (argc == 3)
+    {
+        file_name = argv[1];
+        xsize = atoi(argv[2]);
+        ysize = xsize;        
+    }
+    else if (argc == 2)
+    {
+        file_name = argv[1];
+        texte_de_fin = "pas de parametres de taille: donc la taille de l'image est ";
+    }
+    else
+    {
+        texte_de_fin = "pas de parametres de taille: donc la taille de l'image est ";
+    }
+
     init_Matrix_image(matrix, xsize, ysize);
-    readdata("../doc/datalonglat.txt", v_Pixel);
-    projection(v_Pixel);
-    setup_index_pixel(v_Pixel,matrix.xsize, matrix.ysize);
-    setup_value_pixel(matrix, v_Pixel);
+    //readdata("../doc/datalonglat.txt", v_Pixel);
+    readdata(file_name, v_Point);
+    projection(v_Point);
+    setup_relatif_coordinate(v_Point);
+    setup_index_pixel(v_Point,matrix);
+    setup_value_pixel(matrix, v_Point);
+    //set_shadow(matrix, 45, 315, 0.00000026);
 
 
-    cout<<"les choses peuvent donc commencer"<<endl;
-    pgma_write ( "../doc/MNT.PGM", matrix.xsize, matrix.ysize, matrix.garray );
+    cout<<texte_de_fin<< xsize<<"*"<<ysize<<endl;
+    //
+    //generation of an ASCII file
+    pgma_write ( "../doc/MNT1.PGM", matrix);
+    ppma_write ( "../doc/MNT2.PPM", matrix);
+    //
+    //generation of an ASCII file
+    pgmb_write ( "../doc/MNT3.PGM", matrix);
+    ppmb_write ( "../doc/MNT4.PPM", matrix);
 
     //pgma_write_test ("../doc/datalonglat.PGM");
-    delete [] matrix.garray;
+    //pgm_write_test ("../doc/datalonglat1.PGM");
+
+    // On desalloue la memoire allouee dans la methode create_maze lors de la creation de notre Labyrinthe
+    for (int i=0; i<matrix.ysize; i++)
+        delete [] matrix.tab_pixel[i];
+    delete [] matrix.tab_pixel;
+
     return EXIT_SUCCESS;
 }

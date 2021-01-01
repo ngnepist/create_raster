@@ -1,15 +1,23 @@
 #ifndef __PIXEL_H__
 #define __PIXEL_H__
 
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+
 #include <cstdlib>
-#include <fstream>
 class Pixel
 {
   public:
-  	    Pixel(float east, float north,float level);
+  	    Pixel();
         ~Pixel();
+        void set_val(float val); 
+        void set_rgb_val();
 
-        friend std::istream& operator>>(std::istream& stream, Pixel& p);
-        float p_lat,p_longi,p_x,p_y,p_i,p_j,p_level;
+        float p_f =0; 
+       	unsigned int p_val = 0;
+       	unsigned int p_r = 0, p_g = 0, p_b = 0 ;
+       	int p_nb_point = 0;
 };
+//double round(double value);
 #endif

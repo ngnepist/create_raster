@@ -6,10 +6,22 @@
 
 using namespace std;
 
-void ppma_write ( string file_out_name, Matrix_image& matrix);
-void ppma_write_data ( ofstream &file_out, Matrix_image& matrix);
-void ppma_write_header ( ofstream &file_out, string file_out_name, Matrix_image& matrix, unsigned int maxg);
-void ppmb_write ( string file_out_name, Matrix_image& matrix);
-void ppmb_write_data ( ofstream &file_out, Matrix_image& matrix);
-void ppmb_write_header ( ofstream &file_out, string file_out_name, Matrix_image& matrix, unsigned int maxg);
+
+void ppma_write ( const string file_out_name, const Matrix_image& matrix);
+
+
+void ppma_write_data ( ofstream &file_out, const Matrix_image& matrix);
+
+
+void ppma_write_header ( ofstream &file_out, const string file_out_name, const Matrix_image& matrix, const unsigned int maxg);
+
+
+void ppmb_write ( const string file_out_name, const Matrix_image& matrix);
+
+
+void ppmb_write_data ( ofstream &file_out, const Matrix_image& matrix);
+
+
+void ppmb_write_header ( ofstream &file_out, const string file_out_name, const Matrix_image& matrix, const unsigned int maxg);
+
 #endif

@@ -1,0 +1,253 @@
+\hypertarget{class_point}{}\section{Point Class Reference}
+\label{class_point}\index{Point@{Point}}
+
+
+{\ttfamily \#include $<$point\+\_\+\+M\+N\+T.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_point_a11e86874da3294d7ea8b35be9cd5bd9c}{Point} (float east, float north, float level)
+\item 
+\hyperlink{class_point_a395fa04b4ec126b66fc053f829a30cc1}{$\sim$\+Point} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{class_point_a358899abd4e51fdd5322b76a8324ef90}{p\+\_\+lat}
+\item 
+float \hyperlink{class_point_acee2bfc413dce3e1b69524e85305980b}{p\+\_\+longi}
+\item 
+float \hyperlink{class_point_a7ed90ddaad8bfac738d4ac9a7b6f620f}{p\+\_\+x}
+\item 
+float \hyperlink{class_point_a420b83b0054d2ffc151aac30585c7f4a}{p\+\_\+y}
+\item 
+float \hyperlink{class_point_ae85c8ed96afee827cddee534ae367787}{p\+\_\+x\+\_\+relatif}
+\item 
+float \hyperlink{class_point_af5a6763229a95cb09ef94d605fe3307a}{p\+\_\+y\+\_\+relatif}
+\item 
+float \hyperlink{class_point_add37feb7f6e9ccb3d5ba201d82b7f7a7}{p\+\_\+i}
+\item 
+float \hyperlink{class_point_a53ddf5fde2dd3c2e68cf64bc6ebd6951}{p\+\_\+j}
+\item 
+float \hyperlink{class_point_a40457fd9b36c4414907fa67d8d99f119}{p\+\_\+level}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::istream \& \hyperlink{class_point_af31c1932671eb01dfe5679f3c2dc6a40}{operator$>$$>$} (std\+::istream \&stream, \hyperlink{class_point}{Point} \&p)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Class point, descripte the parameters of a point and it works~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Stephane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Class variables\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Element1, float p\+\_\+lat,p\+\_\+longi, p\+\_\+level, is the lattitude and the longitude and the level of the point.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Element2, float p\+\_\+x,p\+\_\+y, is the projected coordinate of the point.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Element3, float p\+\_\+x\+\_\+relatif, p\+\_\+y\+\_\+relatif, the relatif coordinate the point.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Element4, float p\+\_\+i, p\+\_\+j, is the index of the pixel associated for this point. in the image, this point will be represent by the pixel at the position p\+\_\+i, p\+\_\+j~\newline
+\textbackslash{} ~\newline
+
+
+Definition at line 9 of file point\+\_\+\+M\+N\+T.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_point_a11e86874da3294d7ea8b35be9cd5bd9c}\label{class_point_a11e86874da3294d7ea8b35be9cd5bd9c}} 
+\index{Point@{Point}!Point@{Point}}
+\index{Point@{Point}!Point@{Point}}
+\subsubsection{\texorpdfstring{Point()}{Point()}}
+{\footnotesize\ttfamily Point\+::\+Point (\begin{DoxyParamCaption}\item[{float}]{east,  }\item[{float}]{north,  }\item[{float}]{level }\end{DoxyParamCaption})}
+
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} defaut constructor of a point of the M\+NT knowing the lattitude, the longitude and the level ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} stephane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Parameters\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, float lat, the lattitude of the point~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, float longi, the longitude of the point ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, float level, the altitude of the point ~\newline
+\textbackslash{} ~\newline
+ 
+
+Definition at line 8 of file point\+\_\+\+M\+N\+T.\+cpp.
+
+\mbox{\Hypertarget{class_point_a395fa04b4ec126b66fc053f829a30cc1}\label{class_point_a395fa04b4ec126b66fc053f829a30cc1}} 
+\index{Point@{Point}!````~Point@{$\sim$\+Point}}
+\index{````~Point@{$\sim$\+Point}!Point@{Point}}
+\subsubsection{\texorpdfstring{$\sim$\+Point()}{~Point()}}
+{\footnotesize\ttfamily Point\+::$\sim$\+Point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} desconstroctor of the point~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} stephane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Parameters\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} No parameter~\newline
+\textbackslash{} ~\newline
+ 
+
+Definition at line 35 of file point\+\_\+\+M\+N\+T.\+cpp.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_point_af31c1932671eb01dfe5679f3c2dc6a40}\label{class_point_af31c1932671eb01dfe5679f3c2dc6a40}} 
+\index{Point@{Point}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Point@{Point}}
+\subsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{stream,  }\item[{\hyperlink{class_point}{Point} \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} surcharge de l\textquotesingle{}operateur de lecture~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} stephane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Parameters\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, std\+::istream\& stream, a pointer to the file.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, \hyperlink{class_point}{Point}\& p, point which will containt the reading data.~\newline
+\textbackslash{} ~\newline
+
+
+Definition at line 58 of file point\+\_\+\+M\+N\+T.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_point_add37feb7f6e9ccb3d5ba201d82b7f7a7}\label{class_point_add37feb7f6e9ccb3d5ba201d82b7f7a7}} 
+\index{Point@{Point}!p\+\_\+i@{p\+\_\+i}}
+\index{p\+\_\+i@{p\+\_\+i}!Point@{Point}}
+\subsubsection{\texorpdfstring{p\+\_\+i}{p\_i}}
+{\footnotesize\ttfamily float Point\+::p\+\_\+i}
+
+
+
+Definition at line 38 of file point\+\_\+\+M\+N\+T.\+h.
+
+\mbox{\Hypertarget{class_point_a53ddf5fde2dd3c2e68cf64bc6ebd6951}\label{class_point_a53ddf5fde2dd3c2e68cf64bc6ebd6951}} 
+\index{Point@{Point}!p\+\_\+j@{p\+\_\+j}}
+\index{p\+\_\+j@{p\+\_\+j}!Point@{Point}}
+\subsubsection{\texorpdfstring{p\+\_\+j}{p\_j}}
+{\footnotesize\ttfamily float Point\+::p\+\_\+j}
+
+
+
+Definition at line 38 of file point\+\_\+\+M\+N\+T.\+h.
+
+\mbox{\Hypertarget{class_point_a358899abd4e51fdd5322b76a8324ef90}\label{class_point_a358899abd4e51fdd5322b76a8324ef90}} 
+\index{Point@{Point}!p\+\_\+lat@{p\+\_\+lat}}
+\index{p\+\_\+lat@{p\+\_\+lat}!Point@{Point}}
+\subsubsection{\texorpdfstring{p\+\_\+lat}{p\_lat}}
+{\footnotesize\ttfamily float Point\+::p\+\_\+lat}
+
+
+
+Definition at line 38 of file point\+\_\+\+M\+N\+T.\+h.
+
+\mbox{\Hypertarget{class_point_a40457fd9b36c4414907fa67d8d99f119}\label{class_point_a40457fd9b36c4414907fa67d8d99f119}} 
+\index{Point@{Point}!p\+\_\+level@{p\+\_\+level}}
+\index{p\+\_\+level@{p\+\_\+level}!Point@{Point}}
+\subsubsection{\texorpdfstring{p\+\_\+level}{p\_level}}
+{\footnotesize\ttfamily float Point\+::p\+\_\+level}
+
+
+
+Definition at line 38 of file point\+\_\+\+M\+N\+T.\+h.
+
+\mbox{\Hypertarget{class_point_acee2bfc413dce3e1b69524e85305980b}\label{class_point_acee2bfc413dce3e1b69524e85305980b}} 
+\index{Point@{Point}!p\+\_\+longi@{p\+\_\+longi}}
+\index{p\+\_\+longi@{p\+\_\+longi}!Point@{Point}}
+\subsubsection{\texorpdfstring{p\+\_\+longi}{p\_longi}}
+{\footnotesize\ttfamily float Point\+::p\+\_\+longi}
+
+
+
+Definition at line 38 of file point\+\_\+\+M\+N\+T.\+h.
+
+\mbox{\Hypertarget{class_point_a7ed90ddaad8bfac738d4ac9a7b6f620f}\label{class_point_a7ed90ddaad8bfac738d4ac9a7b6f620f}} 
+\index{Point@{Point}!p\+\_\+x@{p\+\_\+x}}
+\index{p\+\_\+x@{p\+\_\+x}!Point@{Point}}
+\subsubsection{\texorpdfstring{p\+\_\+x}{p\_x}}
+{\footnotesize\ttfamily float Point\+::p\+\_\+x}
+
+
+
+Definition at line 38 of file point\+\_\+\+M\+N\+T.\+h.
+
+\mbox{\Hypertarget{class_point_ae85c8ed96afee827cddee534ae367787}\label{class_point_ae85c8ed96afee827cddee534ae367787}} 
+\index{Point@{Point}!p\+\_\+x\+\_\+relatif@{p\+\_\+x\+\_\+relatif}}
+\index{p\+\_\+x\+\_\+relatif@{p\+\_\+x\+\_\+relatif}!Point@{Point}}
+\subsubsection{\texorpdfstring{p\+\_\+x\+\_\+relatif}{p\_x\_relatif}}
+{\footnotesize\ttfamily float Point\+::p\+\_\+x\+\_\+relatif}
+
+
+
+Definition at line 38 of file point\+\_\+\+M\+N\+T.\+h.
+
+\mbox{\Hypertarget{class_point_a420b83b0054d2ffc151aac30585c7f4a}\label{class_point_a420b83b0054d2ffc151aac30585c7f4a}} 
+\index{Point@{Point}!p\+\_\+y@{p\+\_\+y}}
+\index{p\+\_\+y@{p\+\_\+y}!Point@{Point}}
+\subsubsection{\texorpdfstring{p\+\_\+y}{p\_y}}
+{\footnotesize\ttfamily float Point\+::p\+\_\+y}
+
+
+
+Definition at line 38 of file point\+\_\+\+M\+N\+T.\+h.
+
+\mbox{\Hypertarget{class_point_af5a6763229a95cb09ef94d605fe3307a}\label{class_point_af5a6763229a95cb09ef94d605fe3307a}} 
+\index{Point@{Point}!p\+\_\+y\+\_\+relatif@{p\+\_\+y\+\_\+relatif}}
+\index{p\+\_\+y\+\_\+relatif@{p\+\_\+y\+\_\+relatif}!Point@{Point}}
+\subsubsection{\texorpdfstring{p\+\_\+y\+\_\+relatif}{p\_y\_relatif}}
+{\footnotesize\ttfamily float Point\+::p\+\_\+y\+\_\+relatif}
+
+
+
+Definition at line 38 of file point\+\_\+\+M\+N\+T.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/ngenpiepaye/\+Mon evolution/\+E\+N\+S\+T\+A/\+F\+I\+S\+E2\+A/\+C++/create\+\_\+raster/src/\hyperlink{point___m_n_t_8h}{point\+\_\+\+M\+N\+T.\+h}\item 
+/home/ngenpiepaye/\+Mon evolution/\+E\+N\+S\+T\+A/\+F\+I\+S\+E2\+A/\+C++/create\+\_\+raster/src/\hyperlink{point___m_n_t_8cpp}{point\+\_\+\+M\+N\+T.\+cpp}\end{DoxyCompactItemize}

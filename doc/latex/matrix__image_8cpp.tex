@@ -1,0 +1,275 @@
+\hypertarget{matrix__image_8cpp}{}\section{/home/ngenpiepaye/\+Mon evolution/\+E\+N\+S\+T\+A/\+F\+I\+S\+E2\+A/\+C++/create\+\_\+raster/src/matrix\+\_\+image.cpp File Reference}
+\label{matrix__image_8cpp}\index{/home/ngenpiepaye/\+Mon evolution/\+E\+N\+S\+T\+A/\+F\+I\+S\+E2\+A/\+C++/create\+\_\+raster/src/matrix\+\_\+image.\+cpp@{/home/ngenpiepaye/\+Mon evolution/\+E\+N\+S\+T\+A/\+F\+I\+S\+E2\+A/\+C++/create\+\_\+raster/src/matrix\+\_\+image.\+cpp}}
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include \char`\"{}matrix\+\_\+image.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}point\+\_\+\+M\+N\+T.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pixel.\+h\char`\"{}}\newline
+Include dependency graph for matrix\+\_\+image.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{matrix__image_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{matrix__image_8cpp_a621c37d96a7309382336d7efe143ff14}{compx} (const \hyperlink{class_point}{Point} \&p1, const \hyperlink{class_point}{Point} \&p2)
+\item 
+bool \hyperlink{matrix__image_8cpp_a10418f2e697e64aa06d030e2c6380464}{compy} (const \hyperlink{class_point}{Point} \&p1, const \hyperlink{class_point}{Point} \&p2)
+\item 
+bool \hyperlink{matrix__image_8cpp_a4de98c177b2c83ccf77dbb1cc2e266a7}{compz} (const \hyperlink{class_point}{Point} \&p1, const \hyperlink{class_point}{Point} \&p2)
+\item 
+void \hyperlink{matrix__image_8cpp_a1248e095df9c969f43fe954f9030236b}{readdata} (const string \&file\+\_\+name, vector$<$ \hyperlink{class_point}{Point} $>$ \&v\+\_\+\+Point)
+\item 
+void \hyperlink{matrix__image_8cpp_a25661ba2304c5f5ac7dd0faee662490a}{init\+\_\+\+Matrix\+\_\+image} (\hyperlink{struct_matrix__image}{Matrix\+\_\+image} \&matrix, int xsize, int ysize)
+\item 
+void \hyperlink{matrix__image_8cpp_a7ec590a2c385199d60e2e2f745b47193}{setup\+\_\+index\+\_\+pixel} (vector$<$ \hyperlink{class_point}{Point} $>$ \&v\+\_\+\+Point, \hyperlink{struct_matrix__image}{Matrix\+\_\+image} \&matrix)
+\item 
+void \hyperlink{matrix__image_8cpp_a6260293731b54842c441b7d643433469}{setup\+\_\+value\+\_\+pixel} (\hyperlink{struct_matrix__image}{Matrix\+\_\+image} \&matrix, vector$<$ \hyperlink{class_point}{Point} $>$ \&v\+\_\+\+Point)
+\item 
+void \hyperlink{matrix__image_8cpp_a8edbd41f8186f1314ce9b89466daa6a7}{set\+\_\+shadow} (\hyperlink{struct_matrix__image}{Matrix\+\_\+image} \&matrix, float Altitude, float Azimuth, float cellsize)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{matrix__image_8cpp_a621c37d96a7309382336d7efe143ff14}\label{matrix__image_8cpp_a621c37d96a7309382336d7efe143ff14}} 
+\index{matrix\+\_\+image.\+cpp@{matrix\+\_\+image.\+cpp}!compx@{compx}}
+\index{compx@{compx}!matrix\+\_\+image.\+cpp@{matrix\+\_\+image.\+cpp}}
+\subsubsection{\texorpdfstring{compx()}{compx()}}
+{\footnotesize\ttfamily bool compx (\begin{DoxyParamCaption}\item[{const \hyperlink{class_point}{Point} \&}]{p1,  }\item[{const \hyperlink{class_point}{Point} \&}]{p2 }\end{DoxyParamCaption})}
+
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$ ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+: ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Compare two points using the x coordinate of points ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} example ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} P1(5, 2, 8) , P2(3, 7, 4) ==$>$ P1 $>$ P2 ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+: ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Stephane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Parameters\+: ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, const \hyperlink{class_point}{Point}\& p1, the first point to compare. ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, const \hyperlink{class_point}{Point}\& p2, the second point to compare. ~\newline
+\textbackslash{} ~\newline
+
+
+Definition at line 15 of file matrix\+\_\+image.\+cpp.
+
+\mbox{\Hypertarget{matrix__image_8cpp_a10418f2e697e64aa06d030e2c6380464}\label{matrix__image_8cpp_a10418f2e697e64aa06d030e2c6380464}} 
+\index{matrix\+\_\+image.\+cpp@{matrix\+\_\+image.\+cpp}!compy@{compy}}
+\index{compy@{compy}!matrix\+\_\+image.\+cpp@{matrix\+\_\+image.\+cpp}}
+\subsubsection{\texorpdfstring{compy()}{compy()}}
+{\footnotesize\ttfamily bool compy (\begin{DoxyParamCaption}\item[{const \hyperlink{class_point}{Point} \&}]{p1,  }\item[{const \hyperlink{class_point}{Point} \&}]{p2 }\end{DoxyParamCaption})}
+
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$ ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+: ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Compare two points using the y coordinate of points ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} example ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} P1(5, 2, 8) , P2(3, 7, 4) ==$>$ P2 $>$ P1 ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+: ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Stephane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Parameters\+: ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, const \hyperlink{class_point}{Point}\& p1, the first point to compare. ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, const \hyperlink{class_point}{Point}\& p2, the second point to compare. ~\newline
+\textbackslash{} ~\newline
+
+
+Definition at line 45 of file matrix\+\_\+image.\+cpp.
+
+\mbox{\Hypertarget{matrix__image_8cpp_a4de98c177b2c83ccf77dbb1cc2e266a7}\label{matrix__image_8cpp_a4de98c177b2c83ccf77dbb1cc2e266a7}} 
+\index{matrix\+\_\+image.\+cpp@{matrix\+\_\+image.\+cpp}!compz@{compz}}
+\index{compz@{compz}!matrix\+\_\+image.\+cpp@{matrix\+\_\+image.\+cpp}}
+\subsubsection{\texorpdfstring{compz()}{compz()}}
+{\footnotesize\ttfamily bool compz (\begin{DoxyParamCaption}\item[{const \hyperlink{class_point}{Point} \&}]{p1,  }\item[{const \hyperlink{class_point}{Point} \&}]{p2 }\end{DoxyParamCaption})}
+
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$ ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+: ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Compare two points using the z coordinate of points ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} example ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} P1(5, 2, 8) , P2(3, 7, 4) ==$>$ P1 $>$ P2 ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+: ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Stephane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Parameters\+: ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, const \hyperlink{class_point}{Point}\& p1, the first point to compare. ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, const \hyperlink{class_point}{Point}\& p2, the second point to compare. ~\newline
+\textbackslash{} ~\newline
+
+
+Definition at line 75 of file matrix\+\_\+image.\+cpp.
+
+\mbox{\Hypertarget{matrix__image_8cpp_a25661ba2304c5f5ac7dd0faee662490a}\label{matrix__image_8cpp_a25661ba2304c5f5ac7dd0faee662490a}} 
+\index{matrix\+\_\+image.\+cpp@{matrix\+\_\+image.\+cpp}!init\+\_\+\+Matrix\+\_\+image@{init\+\_\+\+Matrix\+\_\+image}}
+\index{init\+\_\+\+Matrix\+\_\+image@{init\+\_\+\+Matrix\+\_\+image}!matrix\+\_\+image.\+cpp@{matrix\+\_\+image.\+cpp}}
+\subsubsection{\texorpdfstring{init\+\_\+\+Matrix\+\_\+image()}{init\_Matrix\_image()}}
+{\footnotesize\ttfamily void init\+\_\+\+Matrix\+\_\+image (\begin{DoxyParamCaption}\item[{\hyperlink{struct_matrix__image}{Matrix\+\_\+image} \&}]{matrix,  }\item[{int}]{xsize,  }\item[{int}]{ysize }\end{DoxyParamCaption})}
+
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$ ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Create a matrix of pixel and initialize these pixels ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+: ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Stephane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Parameters\+: ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, \hyperlink{struct_matrix__image}{Matrix\+\_\+image}\& matrix, matrix of pixels of the image ~\newline
+\textbackslash{} Input, const int\& xsize, the whith of the image (number of pixels on the whidth) ~\newline
+\textbackslash{} Input, int\& ysize, the height of the image (number of pixels on the heigth) ~\newline
+\textbackslash{} ~\newline
+
+
+Definition at line 160 of file matrix\+\_\+image.\+cpp.
+
+\mbox{\Hypertarget{matrix__image_8cpp_a1248e095df9c969f43fe954f9030236b}\label{matrix__image_8cpp_a1248e095df9c969f43fe954f9030236b}} 
+\index{matrix\+\_\+image.\+cpp@{matrix\+\_\+image.\+cpp}!readdata@{readdata}}
+\index{readdata@{readdata}!matrix\+\_\+image.\+cpp@{matrix\+\_\+image.\+cpp}}
+\subsubsection{\texorpdfstring{readdata()}{readdata()}}
+{\footnotesize\ttfamily void readdata (\begin{DoxyParamCaption}\item[{const string \&}]{file\+\_\+name,  }\item[{vector$<$ \hyperlink{class_point}{Point} $>$ \&}]{v\+\_\+\+Point }\end{DoxyParamCaption})}
+
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$ ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+: ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Extract data of the M\+NT and put them inside a vector ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} example ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} 48.\+19517461 -\/3.\+028930672 -\/117.\+281 ~\newline
+\textbackslash{} 48.\+19517496 -\/3.\+028923963 -\/117.\+469 ~\newline
+\textbackslash{} 48.\+1951753 -\/3.\+028917253 -\/117.\+527 ~\newline
+\textbackslash{} 48.\+19517564 -\/3.\+028910544 -\/117.\+506 ~\newline
+\textbackslash{} 48.\+19517738 -\/3.\+028964733 -\/116.\+976 ~\newline
+\textbackslash{} ..... ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+: ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Stephane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Parameters\+: ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, const string\& file\+\_\+name, the name of the file containing data to extract. ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, vector$<$\+Point$>$\& v\+\_\+\+Point, the vector to fill. ~\newline
+\textbackslash{} ~\newline
+
+
+Definition at line 105 of file matrix\+\_\+image.\+cpp.
+
+\mbox{\Hypertarget{matrix__image_8cpp_a8edbd41f8186f1314ce9b89466daa6a7}\label{matrix__image_8cpp_a8edbd41f8186f1314ce9b89466daa6a7}} 
+\index{matrix\+\_\+image.\+cpp@{matrix\+\_\+image.\+cpp}!set\+\_\+shadow@{set\+\_\+shadow}}
+\index{set\+\_\+shadow@{set\+\_\+shadow}!matrix\+\_\+image.\+cpp@{matrix\+\_\+image.\+cpp}}
+\subsubsection{\texorpdfstring{set\+\_\+shadow()}{set\_shadow()}}
+{\footnotesize\ttfamily void set\+\_\+shadow (\begin{DoxyParamCaption}\item[{\hyperlink{struct_matrix__image}{Matrix\+\_\+image} \&}]{matrix,  }\item[{float}]{Altitude,  }\item[{float}]{Azimuth,  }\item[{float}]{cellsize }\end{DoxyParamCaption})}
+
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$ ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} mise de l\textquotesingle{}ombrage mais ne fonctionne pas encore ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Stephane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Parameters\+: ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, \hyperlink{struct_matrix__image}{Matrix\+\_\+image}\& matrix, matrix of pixels of the image ~\newline
+\textbackslash{} ~\newline
+
+
+Definition at line 309 of file matrix\+\_\+image.\+cpp.
+
+\mbox{\Hypertarget{matrix__image_8cpp_a7ec590a2c385199d60e2e2f745b47193}\label{matrix__image_8cpp_a7ec590a2c385199d60e2e2f745b47193}} 
+\index{matrix\+\_\+image.\+cpp@{matrix\+\_\+image.\+cpp}!setup\+\_\+index\+\_\+pixel@{setup\+\_\+index\+\_\+pixel}}
+\index{setup\+\_\+index\+\_\+pixel@{setup\+\_\+index\+\_\+pixel}!matrix\+\_\+image.\+cpp@{matrix\+\_\+image.\+cpp}}
+\subsubsection{\texorpdfstring{setup\+\_\+index\+\_\+pixel()}{setup\_index\_pixel()}}
+{\footnotesize\ttfamily void setup\+\_\+index\+\_\+pixel (\begin{DoxyParamCaption}\item[{vector$<$ \hyperlink{class_point}{Point} $>$ \&}]{v\+\_\+\+Point,  }\item[{\hyperlink{struct_matrix__image}{Matrix\+\_\+image} \&}]{matrix }\end{DoxyParamCaption})}
+
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$ ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+: ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Set up of index of pixel inside the pixel matrix of the image ~\newline
+\textbackslash{} for each element of list of point of the M\+NT we find which pixel corresponding to that point ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Stephane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Parameters\+: ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, vector$<$\+Point$>$\& v\+\_\+\+Point, the vector of all points of the M\+NT. ~\newline
+\textbackslash{} Input, \hyperlink{struct_matrix__image}{Matrix\+\_\+image}\& matrix, the matrix which containt all pixel of the image to set up ~\newline
+\textbackslash{} ~\newline
+
+
+Definition at line 202 of file matrix\+\_\+image.\+cpp.
+
+\mbox{\Hypertarget{matrix__image_8cpp_a6260293731b54842c441b7d643433469}\label{matrix__image_8cpp_a6260293731b54842c441b7d643433469}} 
+\index{matrix\+\_\+image.\+cpp@{matrix\+\_\+image.\+cpp}!setup\+\_\+value\+\_\+pixel@{setup\+\_\+value\+\_\+pixel}}
+\index{setup\+\_\+value\+\_\+pixel@{setup\+\_\+value\+\_\+pixel}!matrix\+\_\+image.\+cpp@{matrix\+\_\+image.\+cpp}}
+\subsubsection{\texorpdfstring{setup\+\_\+value\+\_\+pixel()}{setup\_value\_pixel()}}
+{\footnotesize\ttfamily void setup\+\_\+value\+\_\+pixel (\begin{DoxyParamCaption}\item[{\hyperlink{struct_matrix__image}{Matrix\+\_\+image} \&}]{matrix,  }\item[{vector$<$ \hyperlink{class_point}{Point} $>$ \&}]{v\+\_\+\+Point }\end{DoxyParamCaption})}
+
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$ ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+: ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Set up of the value of pixel inside the pixel matrix of the image ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Stephane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE ~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Parameters\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, vector$<$\+Point$>$\& v\+\_\+\+Point, the vector of all points of the M\+NT.~\newline
+\textbackslash{} Input, \hyperlink{struct_matrix__image}{Matrix\+\_\+image}\& matrix, the matrix which containt all pixel of the image to set up~\newline
+\textbackslash{} ~\newline
+
+
+Definition at line 252 of file matrix\+\_\+image.\+cpp.
+

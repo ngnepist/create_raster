@@ -1,0 +1,235 @@
+\hypertarget{class_pixel}{}\section{Pixel Class Reference}
+\label{class_pixel}\index{Pixel@{Pixel}}
+
+
+{\ttfamily \#include $<$pixel.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_pixel_a27ad99a2f705e635c42d242d530d4756}{Pixel} ()
+\item 
+\hyperlink{class_pixel_a30f6aaf9a1d8792245070860546fa365}{$\sim$\+Pixel} ()
+\item 
+void \hyperlink{class_pixel_a0064982203ecaf79cf79ecfa04fb4f1f}{set\+\_\+val} (float val)
+\item 
+void \hyperlink{class_pixel_a22150f6c19217b513d58ef7ec7bda6a9}{set\+\_\+rgb\+\_\+val} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{class_pixel_a7deda5be756322a5c31f6c2da641fd23}{p\+\_\+f} =0
+\item 
+unsigned int \hyperlink{class_pixel_ab220df144b119969f66eb5fb5d75c9bb}{p\+\_\+val} = 0
+\item 
+unsigned int \hyperlink{class_pixel_a837be2857d4fba78615f2fb78e28e67d}{p\+\_\+r} = 0
+\item 
+unsigned int \hyperlink{class_pixel_ab57c1d8eb36e078122374f40101648b4}{p\+\_\+g} = 0
+\item 
+unsigned int \hyperlink{class_pixel_a9521bc43c95cfcb25a11b03e176ad6a1}{p\+\_\+b} = 0
+\item 
+int \hyperlink{class_pixel_ad6e3f83bd8d6894e3e7516a19fcef096}{p\+\_\+nb\+\_\+point} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Class pixel, descripte the parameters of a pixel and it works~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Stephane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Class variables\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Element1, unsigned int p\+\_\+val, is the value of the pixel, using for calculate gray scale color.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Element2, float p\+\_\+f, a number important for the calculation of R\+GB color.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Element3, unsigned int p\+\_\+r, p\+\_\+g, p\+\_\+b, R\+GB values for the setup of color.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Element4, int p\+\_\+nb\+\_\+point, number of point which contribute to the calculation of the value of the pixel, we use it for the barycenter~\newline
+\textbackslash{} ~\newline
+
+
+Definition at line 12 of file pixel.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_pixel_a27ad99a2f705e635c42d242d530d4756}\label{class_pixel_a27ad99a2f705e635c42d242d530d4756}} 
+\index{Pixel@{Pixel}!Pixel@{Pixel}}
+\index{Pixel@{Pixel}!Pixel@{Pixel}}
+\subsubsection{\texorpdfstring{Pixel()}{Pixel()}}
+{\footnotesize\ttfamily Pixel\+::\+Pixel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} defaut constructor of the pixel~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} stephane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Parameters\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} No parameter~\newline
+\textbackslash{} ~\newline
+
+
+Definition at line 9 of file pixel.\+cpp.
+
+\mbox{\Hypertarget{class_pixel_a30f6aaf9a1d8792245070860546fa365}\label{class_pixel_a30f6aaf9a1d8792245070860546fa365}} 
+\index{Pixel@{Pixel}!````~Pixel@{$\sim$\+Pixel}}
+\index{````~Pixel@{$\sim$\+Pixel}!Pixel@{Pixel}}
+\subsubsection{\texorpdfstring{$\sim$\+Pixel()}{~Pixel()}}
+{\footnotesize\ttfamily Pixel\+::$\sim$\+Pixel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} desconstroctor of the pixel~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} stephane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Parameters\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} No parameter~\newline
+\textbackslash{} ~\newline
+
+
+Definition at line 32 of file pixel.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pixel_a22150f6c19217b513d58ef7ec7bda6a9}\label{class_pixel_a22150f6c19217b513d58ef7ec7bda6a9}} 
+\index{Pixel@{Pixel}!set\+\_\+rgb\+\_\+val@{set\+\_\+rgb\+\_\+val}}
+\index{set\+\_\+rgb\+\_\+val@{set\+\_\+rgb\+\_\+val}!Pixel@{Pixel}}
+\subsubsection{\texorpdfstring{set\+\_\+rgb\+\_\+val()}{set\_rgb\_val()}}
+{\footnotesize\ttfamily void Pixel\+::set\+\_\+rgb\+\_\+val (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Set the color of the pixel using \char`\"{}short rainbow R\+G\+B\char`\"{} scale for conversion~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} stephane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Parameters\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} No parameter~\newline
+\textbackslash{} ~\newline
+
+
+Definition at line 82 of file pixel.\+cpp.
+
+\mbox{\Hypertarget{class_pixel_a0064982203ecaf79cf79ecfa04fb4f1f}\label{class_pixel_a0064982203ecaf79cf79ecfa04fb4f1f}} 
+\index{Pixel@{Pixel}!set\+\_\+val@{set\+\_\+val}}
+\index{set\+\_\+val@{set\+\_\+val}!Pixel@{Pixel}}
+\subsubsection{\texorpdfstring{set\+\_\+val()}{set\_val()}}
+{\footnotesize\ttfamily void Pixel\+::set\+\_\+val (\begin{DoxyParamCaption}\item[{float}]{val }\end{DoxyParamCaption})}
+
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Set the value of the pixel, this value helps for the choice of the color or the level of gray~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} stephane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Parameters\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, float val, the value of the value of the pixel depending of the altitude of the point corresponding ~\newline
+\textbackslash{} ~\newline
+
+
+Definition at line 56 of file pixel.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_pixel_a9521bc43c95cfcb25a11b03e176ad6a1}\label{class_pixel_a9521bc43c95cfcb25a11b03e176ad6a1}} 
+\index{Pixel@{Pixel}!p\+\_\+b@{p\+\_\+b}}
+\index{p\+\_\+b@{p\+\_\+b}!Pixel@{Pixel}}
+\subsubsection{\texorpdfstring{p\+\_\+b}{p\_b}}
+{\footnotesize\ttfamily unsigned int Pixel\+::p\+\_\+b = 0}
+
+
+
+Definition at line 45 of file pixel.\+h.
+
+\mbox{\Hypertarget{class_pixel_a7deda5be756322a5c31f6c2da641fd23}\label{class_pixel_a7deda5be756322a5c31f6c2da641fd23}} 
+\index{Pixel@{Pixel}!p\+\_\+f@{p\+\_\+f}}
+\index{p\+\_\+f@{p\+\_\+f}!Pixel@{Pixel}}
+\subsubsection{\texorpdfstring{p\+\_\+f}{p\_f}}
+{\footnotesize\ttfamily float Pixel\+::p\+\_\+f =0}
+
+
+
+Definition at line 43 of file pixel.\+h.
+
+\mbox{\Hypertarget{class_pixel_ab57c1d8eb36e078122374f40101648b4}\label{class_pixel_ab57c1d8eb36e078122374f40101648b4}} 
+\index{Pixel@{Pixel}!p\+\_\+g@{p\+\_\+g}}
+\index{p\+\_\+g@{p\+\_\+g}!Pixel@{Pixel}}
+\subsubsection{\texorpdfstring{p\+\_\+g}{p\_g}}
+{\footnotesize\ttfamily unsigned int Pixel\+::p\+\_\+g = 0}
+
+
+
+Definition at line 45 of file pixel.\+h.
+
+\mbox{\Hypertarget{class_pixel_ad6e3f83bd8d6894e3e7516a19fcef096}\label{class_pixel_ad6e3f83bd8d6894e3e7516a19fcef096}} 
+\index{Pixel@{Pixel}!p\+\_\+nb\+\_\+point@{p\+\_\+nb\+\_\+point}}
+\index{p\+\_\+nb\+\_\+point@{p\+\_\+nb\+\_\+point}!Pixel@{Pixel}}
+\subsubsection{\texorpdfstring{p\+\_\+nb\+\_\+point}{p\_nb\_point}}
+{\footnotesize\ttfamily int Pixel\+::p\+\_\+nb\+\_\+point = 0}
+
+
+
+Definition at line 46 of file pixel.\+h.
+
+\mbox{\Hypertarget{class_pixel_a837be2857d4fba78615f2fb78e28e67d}\label{class_pixel_a837be2857d4fba78615f2fb78e28e67d}} 
+\index{Pixel@{Pixel}!p\+\_\+r@{p\+\_\+r}}
+\index{p\+\_\+r@{p\+\_\+r}!Pixel@{Pixel}}
+\subsubsection{\texorpdfstring{p\+\_\+r}{p\_r}}
+{\footnotesize\ttfamily unsigned int Pixel\+::p\+\_\+r = 0}
+
+
+
+Definition at line 45 of file pixel.\+h.
+
+\mbox{\Hypertarget{class_pixel_ab220df144b119969f66eb5fb5d75c9bb}\label{class_pixel_ab220df144b119969f66eb5fb5d75c9bb}} 
+\index{Pixel@{Pixel}!p\+\_\+val@{p\+\_\+val}}
+\index{p\+\_\+val@{p\+\_\+val}!Pixel@{Pixel}}
+\subsubsection{\texorpdfstring{p\+\_\+val}{p\_val}}
+{\footnotesize\ttfamily unsigned int Pixel\+::p\+\_\+val = 0}
+
+
+
+Definition at line 44 of file pixel.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/ngenpiepaye/\+Mon evolution/\+E\+N\+S\+T\+A/\+F\+I\+S\+E2\+A/\+C++/create\+\_\+raster/src/\hyperlink{pixel_8h}{pixel.\+h}\item 
+/home/ngenpiepaye/\+Mon evolution/\+E\+N\+S\+T\+A/\+F\+I\+S\+E2\+A/\+C++/create\+\_\+raster/src/\hyperlink{pixel_8cpp}{pixel.\+cpp}\end{DoxyCompactItemize}

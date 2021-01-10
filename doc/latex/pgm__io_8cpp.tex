@@ -1,0 +1,225 @@
+\hypertarget{pgm__io_8cpp}{}\section{/home/ngenpiepaye/\+Mon evolution/\+E\+N\+S\+T\+A/\+F\+I\+S\+E2\+A/\+C++/create\+\_\+raster/src/pgm\+\_\+io.cpp File Reference}
+\label{pgm__io_8cpp}\index{/home/ngenpiepaye/\+Mon evolution/\+E\+N\+S\+T\+A/\+F\+I\+S\+E2\+A/\+C++/create\+\_\+raster/src/pgm\+\_\+io.\+cpp@{/home/ngenpiepaye/\+Mon evolution/\+E\+N\+S\+T\+A/\+F\+I\+S\+E2\+A/\+C++/create\+\_\+raster/src/pgm\+\_\+io.\+cpp}}
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}matrix\+\_\+image.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pixel.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pgm\+\_\+io.\+h\char`\"{}}\newline
+Include dependency graph for pgm\+\_\+io.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pgm__io_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{pgm__io_8cpp_a31647643638446f50a111b320359fc71}{pgma\+\_\+write} (const string output\+\_\+name, const \hyperlink{struct_matrix__image}{Matrix\+\_\+image} \&matrix)
+\item 
+void \hyperlink{pgm__io_8cpp_acd3149f088e0122c2b30e1b40a7750a2}{pgma\+\_\+write\+\_\+data} (ofstream \&output, const \hyperlink{struct_matrix__image}{Matrix\+\_\+image} \&matrix)
+\item 
+void \hyperlink{pgm__io_8cpp_a10fec918da7d3c0767f34c55f4fc16a9}{pgma\+\_\+write\+\_\+header} (ofstream \&output, const string output\+\_\+name, const \hyperlink{struct_matrix__image}{Matrix\+\_\+image} \&matrix, const unsigned int maxg)
+\item 
+void \hyperlink{pgm__io_8cpp_a7b2bdbbc65ad268b966ccc7e36c86bb6}{pgmb\+\_\+write} (const string output\+\_\+name, const \hyperlink{struct_matrix__image}{Matrix\+\_\+image} \&matrix)
+\item 
+void \hyperlink{pgm__io_8cpp_a4c2952163ded78067fb83bd465034f85}{pgmb\+\_\+write\+\_\+data} (ofstream \&output, const \hyperlink{struct_matrix__image}{Matrix\+\_\+image} \&matrix)
+\item 
+void \hyperlink{pgm__io_8cpp_a77d494aebd0a550099d634f486ef8a39}{pgmb\+\_\+write\+\_\+header} (ofstream \&output, const string output\+\_\+name, const \hyperlink{struct_matrix__image}{Matrix\+\_\+image} \&matrix, const unsigned int maxg)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{pgm__io_8cpp_a31647643638446f50a111b320359fc71}\label{pgm__io_8cpp_a31647643638446f50a111b320359fc71}} 
+\index{pgm\+\_\+io.\+cpp@{pgm\+\_\+io.\+cpp}!pgma\+\_\+write@{pgma\+\_\+write}}
+\index{pgma\+\_\+write@{pgma\+\_\+write}!pgm\+\_\+io.\+cpp@{pgm\+\_\+io.\+cpp}}
+\subsubsection{\texorpdfstring{pgma\+\_\+write()}{pgma\_write()}}
+{\footnotesize\ttfamily void pgma\+\_\+write (\begin{DoxyParamCaption}\item[{const string}]{output\+\_\+name,  }\item[{const \hyperlink{struct_matrix__image}{Matrix\+\_\+image} \&}]{matrix }\end{DoxyParamCaption})}
+
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} P\+G\+M\+A\+\_\+\+W\+R\+I\+TE writes the header and data for an A\+S\+C\+II P\+GM file.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Example\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} P2~\newline
+\textbackslash{} \# feep.\+pgm~\newline
+\textbackslash{} 24 7~\newline
+\textbackslash{} 15~\newline
+\textbackslash{} 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~\newline
+\textbackslash{} 0 3 3 3 3 0 0 7 7 7 7 0 0 11 11 11 11 0 0 15 15 15 15 0~\newline
+\textbackslash{} 0 3 0 0 0 0 0 7 0 0 0 0 0 11 0 0 0 0 0 15 0 0 15 0~\newline
+\textbackslash{} 0 3 3 3 0 0 0 7 7 7 0 0 0 11 11 11 0 0 0 15 15 15 15 0~\newline
+\textbackslash{} 0 3 0 0 0 0 0 7 0 0 0 0 0 11 0 0 0 0 0 15 0 0 0 0~\newline
+\textbackslash{} 0 3 0 0 0 0 0 7 7 7 7 0 0 11 11 11 11 0 0 15 0 0 0 0~\newline
+\textbackslash{} 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} stephane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Parameters\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, string O\+U\+T\+P\+U\+T\+\_\+\+N\+A\+ME, the name of the file.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, \hyperlink{struct_matrix__image}{Matrix\+\_\+image}\& matrix matrix of pixel.~\newline
+\textbackslash{} ~\newline
+
+
+Definition at line 12 of file pgm\+\_\+io.\+cpp.
+
+\mbox{\Hypertarget{pgm__io_8cpp_acd3149f088e0122c2b30e1b40a7750a2}\label{pgm__io_8cpp_acd3149f088e0122c2b30e1b40a7750a2}} 
+\index{pgm\+\_\+io.\+cpp@{pgm\+\_\+io.\+cpp}!pgma\+\_\+write\+\_\+data@{pgma\+\_\+write\+\_\+data}}
+\index{pgma\+\_\+write\+\_\+data@{pgma\+\_\+write\+\_\+data}!pgm\+\_\+io.\+cpp@{pgm\+\_\+io.\+cpp}}
+\subsubsection{\texorpdfstring{pgma\+\_\+write\+\_\+data()}{pgma\_write\_data()}}
+{\footnotesize\ttfamily void pgma\+\_\+write\+\_\+data (\begin{DoxyParamCaption}\item[{ofstream \&}]{output,  }\item[{const \hyperlink{struct_matrix__image}{Matrix\+\_\+image} \&}]{matrix }\end{DoxyParamCaption})}
+
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} P\+G\+M\+A\+\_\+\+W\+R\+I\+T\+E\+\_\+\+D\+A\+TA writes the data for an A\+S\+C\+II P\+GM file.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Stephane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Parameters\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, ofstream \&O\+U\+T\+P\+UT, a pointer to the file.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, \hyperlink{struct_matrix__image}{Matrix\+\_\+image}\& matrix matrix of pixel.~\newline
+\textbackslash{} ~\newline
+
+
+Definition at line 97 of file pgm\+\_\+io.\+cpp.
+
+\mbox{\Hypertarget{pgm__io_8cpp_a10fec918da7d3c0767f34c55f4fc16a9}\label{pgm__io_8cpp_a10fec918da7d3c0767f34c55f4fc16a9}} 
+\index{pgm\+\_\+io.\+cpp@{pgm\+\_\+io.\+cpp}!pgma\+\_\+write\+\_\+header@{pgma\+\_\+write\+\_\+header}}
+\index{pgma\+\_\+write\+\_\+header@{pgma\+\_\+write\+\_\+header}!pgm\+\_\+io.\+cpp@{pgm\+\_\+io.\+cpp}}
+\subsubsection{\texorpdfstring{pgma\+\_\+write\+\_\+header()}{pgma\_write\_header()}}
+{\footnotesize\ttfamily void pgma\+\_\+write\+\_\+header (\begin{DoxyParamCaption}\item[{ofstream \&}]{output,  }\item[{const string}]{output\+\_\+name,  }\item[{const \hyperlink{struct_matrix__image}{Matrix\+\_\+image} \&}]{matrix,  }\item[{const unsigned int}]{maxg }\end{DoxyParamCaption})}
+
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} P\+G\+M\+A\+\_\+\+W\+R\+I\+T\+E\+\_\+\+H\+E\+A\+D\+ER writes the header of an A\+S\+C\+II P\+GM file.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Steĥane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Parameters\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, ofstream \&O\+U\+T\+P\+UT, a pointer to the file.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, string O\+U\+T\+P\+U\+T\+\_\+\+N\+A\+ME, the name of the file.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, \hyperlink{struct_matrix__image}{Matrix\+\_\+image}\& matrix matrix of pixel.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, unsigned int M\+A\+XG, the maximum gray value.~\newline
+\textbackslash{} ~\newline
+
+
+Definition at line 147 of file pgm\+\_\+io.\+cpp.
+
+\mbox{\Hypertarget{pgm__io_8cpp_a7b2bdbbc65ad268b966ccc7e36c86bb6}\label{pgm__io_8cpp_a7b2bdbbc65ad268b966ccc7e36c86bb6}} 
+\index{pgm\+\_\+io.\+cpp@{pgm\+\_\+io.\+cpp}!pgmb\+\_\+write@{pgmb\+\_\+write}}
+\index{pgmb\+\_\+write@{pgmb\+\_\+write}!pgm\+\_\+io.\+cpp@{pgm\+\_\+io.\+cpp}}
+\subsubsection{\texorpdfstring{pgmb\+\_\+write()}{pgmb\_write()}}
+{\footnotesize\ttfamily void pgmb\+\_\+write (\begin{DoxyParamCaption}\item[{const string}]{output\+\_\+name,  }\item[{const \hyperlink{struct_matrix__image}{Matrix\+\_\+image} \&}]{matrix }\end{DoxyParamCaption})}
+
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} P\+G\+M\+B\+\_\+\+W\+R\+I\+TE writes the header and data for a binary P\+GM file.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} example~\newline
+\textbackslash{} ~\newline
+\textbackslash{} P3~\newline
+\textbackslash{} \# Le P3 signifie que les couleurs sont en A\+S\+C\+II, et qu\textquotesingle{}elles sont en R\+GB.~\newline
+\textbackslash{} \# Par 3 colonnes et 2 lignes \+:~\newline
+\textbackslash{} 3 2~\newline
+\textbackslash{} \# Ayant 255 pour valeur maximum \+:~\newline
+\textbackslash{} data ...~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Stephane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Parameters\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, string O\+U\+T\+P\+U\+T\+\_\+\+N\+A\+ME, the name of the file.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, \hyperlink{struct_matrix__image}{Matrix\+\_\+image}\& matrix matrix of pixel.~\newline
+\textbackslash{} ~\newline
+
+
+Definition at line 182 of file pgm\+\_\+io.\+cpp.
+
+\mbox{\Hypertarget{pgm__io_8cpp_a4c2952163ded78067fb83bd465034f85}\label{pgm__io_8cpp_a4c2952163ded78067fb83bd465034f85}} 
+\index{pgm\+\_\+io.\+cpp@{pgm\+\_\+io.\+cpp}!pgmb\+\_\+write\+\_\+data@{pgmb\+\_\+write\+\_\+data}}
+\index{pgmb\+\_\+write\+\_\+data@{pgmb\+\_\+write\+\_\+data}!pgm\+\_\+io.\+cpp@{pgm\+\_\+io.\+cpp}}
+\subsubsection{\texorpdfstring{pgmb\+\_\+write\+\_\+data()}{pgmb\_write\_data()}}
+{\footnotesize\ttfamily void pgmb\+\_\+write\+\_\+data (\begin{DoxyParamCaption}\item[{ofstream \&}]{output,  }\item[{const \hyperlink{struct_matrix__image}{Matrix\+\_\+image} \&}]{matrix }\end{DoxyParamCaption})}
+
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} P\+G\+M\+B\+\_\+\+W\+R\+I\+T\+E\+\_\+\+D\+A\+TA writes the data for a binary P\+GM file.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Stephane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Parameters\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, ofstream \&O\+U\+T\+P\+UT, a pointer to the file.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, \hyperlink{struct_matrix__image}{Matrix\+\_\+image}\& matrix matrix of pixel.~\newline
+\textbackslash{} ~\newline
+
+
+Definition at line 262 of file pgm\+\_\+io.\+cpp.
+
+\mbox{\Hypertarget{pgm__io_8cpp_a77d494aebd0a550099d634f486ef8a39}\label{pgm__io_8cpp_a77d494aebd0a550099d634f486ef8a39}} 
+\index{pgm\+\_\+io.\+cpp@{pgm\+\_\+io.\+cpp}!pgmb\+\_\+write\+\_\+header@{pgmb\+\_\+write\+\_\+header}}
+\index{pgmb\+\_\+write\+\_\+header@{pgmb\+\_\+write\+\_\+header}!pgm\+\_\+io.\+cpp@{pgm\+\_\+io.\+cpp}}
+\subsubsection{\texorpdfstring{pgmb\+\_\+write\+\_\+header()}{pgmb\_write\_header()}}
+{\footnotesize\ttfamily void pgmb\+\_\+write\+\_\+header (\begin{DoxyParamCaption}\item[{ofstream \&}]{output,  }\item[{const string}]{output\+\_\+name,  }\item[{const \hyperlink{struct_matrix__image}{Matrix\+\_\+image} \&}]{matrix,  }\item[{const unsigned int}]{maxg }\end{DoxyParamCaption})}
+
+~\newline
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$80~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Purpose\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} P\+G\+M\+B\+\_\+\+W\+R\+I\+T\+E\+\_\+\+H\+E\+A\+D\+ER writes the header of a binary P\+GM file.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Author\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Stephane N\+G\+N\+E\+P\+I\+E\+P\+A\+YE W\+E\+M\+BE~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Parameters\+:~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, ofstream \&O\+U\+T\+P\+UT, a pointer to the file.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, string O\+U\+T\+P\+U\+T\+\_\+\+N\+A\+ME, the name of the file.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, \hyperlink{struct_matrix__image}{Matrix\+\_\+image}\& matrix matrix of pixel.~\newline
+\textbackslash{} ~\newline
+\textbackslash{} Input, unsigned int M\+A\+XG, the maximum gray value.~\newline
+\textbackslash{} ~\newline
+
+
+Definition at line 299 of file pgm\+\_\+io.\+cpp.
+

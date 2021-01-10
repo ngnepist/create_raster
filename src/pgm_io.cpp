@@ -9,38 +9,40 @@ using namespace std;
 
 //****************************************************************************
 
-void pgma_write ( string output_name, Matrix_image& matrix)
+void pgma_write ( const string output_name, const Matrix_image& matrix)
 
-//****************************************************************************
-//
-//  Purpose:
-//
-//    PGMA_WRITE writes the header and data for an ASCII PGM file.
-// 
-//  Example:
-//
-//    P2
-//    # feep.pgm
-//    24 7
-//    15
-//    0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
-//    0  3  3  3  3  0  0  7  7  7  7  0  0 11 11 11 11  0  0 15 15 15 15  0
-//    0  3  0  0  0  0  0  7  0  0  0  0  0 11  0  0  0  0  0 15  0  0 15  0
-//    0  3  3  3  0  0  0  7  7  7  0  0  0 11 11 11  0  0  0 15 15 15 15  0
-//    0  3  0  0  0  0  0  7  0  0  0  0  0 11  0  0  0  0  0 15  0  0  0  0
-//    0  3  0  0  0  0  0  7  7  7  7  0  0 11 11 11 11  0  0 15  0  0  0  0
-//    0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
-//
-//  Author:
-// 
-//    stephane NGNEPIEPAYE WEMBE
-//
-//  Parameters:
-//
-//    Input, string OUTPUT_NAME, the name of the file.
-//
-//    Input, Matrix_image& matrix matrix of pixel.
-//
+/** \n
+*\****************************************************************************\n
+*\ \n
+*\  Purpose:\n
+*\ \n
+*\    PGMA_WRITE writes the header and data for an ASCII PGM file.\n
+*\ \n
+*\  Example:\n
+*\ \n
+*\    P2\n
+*\    # feep.pgm\n
+*\    24 7\n
+*\    15\n
+*\    0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0\n
+*\    0  3  3  3  3  0  0  7  7  7  7  0  0 11 11 11 11  0  0 15 15 15 15  0\n
+*\    0  3  0  0  0  0  0  7  0  0  0  0  0 11  0  0  0  0  0 15  0  0 15  0\n
+*\    0  3  3  3  0  0  0  7  7  7  0  0  0 11 11 11  0  0  0 15 15 15 15  0\n
+*\    0  3  0  0  0  0  0  7  0  0  0  0  0 11  0  0  0  0  0 15  0  0  0  0\n
+*\    0  3  0  0  0  0  0  7  7  7  7  0  0 11 11 11 11  0  0 15  0  0  0  0\n
+*\    0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0\n
+*\ \n
+*\  Author:\n
+*\ \n
+*\    stephane NGNEPIEPAYE WEMBE\n
+*\ \n
+*\  Parameters:\n
+*\ \n
+*\    Input, string OUTPUT_NAME, the name of the file.\n
+*\ \n
+*\    Input, Matrix_image& matrix matrix of pixel.\n
+*\ \n
+*/
 {
   ofstream output;
   int i;
@@ -90,25 +92,28 @@ void pgma_write ( string output_name, Matrix_image& matrix)
   return;
 }
 
+//****************************************************************************
 
-void pgma_write_data ( ofstream &output, Matrix_image& matrix)
+void pgma_write_data ( ofstream &output, const Matrix_image& matrix)
 
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    PGMA_WRITE_DATA writes the data for an ASCII PGM file.
-//
-//  Author:
-//
-//    Stephane NGNEPIEPAYE WEMBE
-//
-//  Parameters:
-//
-//    Input, ofstream &OUTPUT, a pointer to the file.
-//
-//    Input, Matrix_image& matrix matrix of pixel.
-//
+/** \n
+*\****************************************************************************\n
+*\ \n
+*\  Purpose:\n
+*\ \n
+*\    PGMA_WRITE_DATA writes the data for an ASCII PGM file.\n
+*\ \n
+*\  Author:\n
+*\ \n
+*\    Stephane NGNEPIEPAYE WEMBE\n
+*\ \n
+*\  Parameters:\n
+*\ \n
+*\    Input, ofstream &OUTPUT, a pointer to the file.\n
+*\ \n
+*\    Input, Matrix_image& matrix matrix of pixel.\n
+*\ \n
+*/
 {
   int i;
   int j;
@@ -137,28 +142,32 @@ void pgma_write_data ( ofstream &output, Matrix_image& matrix)
   return;
 }
 
-void pgma_write_header ( ofstream &output, string output_name, Matrix_image& matrix, unsigned int maxg)
+//****************************************************************************
 
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    PGMA_WRITE_HEADER writes the header of an ASCII PGM file.
-//
-//  Author:
-//
-//    Steĥane NGNEPIEPAYE WEMBE
-//
-//  Parameters:
-//
-//    Input, ofstream &OUTPUT, a pointer to the file.
-//
-//    Input, string OUTPUT_NAME, the name of the file.
-//
-//    Input, Matrix_image& matrix matrix of pixel.
-//
-//    Input, unsigned int MAXG, the maximum gray value.
-//
+void pgma_write_header ( ofstream &output, const string output_name, const Matrix_image& matrix, const unsigned int maxg)
+
+/** \n
+*\****************************************************************************\n
+*\ \n
+*\  Purpose:\n
+*\ \n
+*\    PGMA_WRITE_HEADER writes the header of an ASCII PGM file.\n
+*\ \n
+*\  Author:\n
+*\ \n
+*\    Steĥane NGNEPIEPAYE WEMBE\n
+*\ \n
+*\  Parameters:\n
+*\ \n
+*\    Input, ofstream &OUTPUT, a pointer to the file.\n
+*\ \n
+*\    Input, string OUTPUT_NAME, the name of the file.\n
+*\ \n
+*\    Input, Matrix_image& matrix matrix of pixel.\n
+*\ \n
+*\    Input, unsigned int MAXG, the maximum gray value.\n
+*\ \n
+*/
 {
   output << "P2\n";
   output << "# " << output_name << " created by PGMA_IO::PGMA_WRITE.\n";
@@ -170,33 +179,35 @@ void pgma_write_header ( ofstream &output, string output_name, Matrix_image& mat
 
 //****************************************************************************
 
-void pgmb_write ( string output_name, Matrix_image& matrix)
+void pgmb_write ( const string output_name, const Matrix_image& matrix)
 
-//****************************************************************************
-//
-//  Purpose:
-//
-//    PGMB_WRITE writes the header and data for a binary PGM file.
-//
-//  example
-//
-//  P3
-//  # Le P3 signifie que les couleurs sont en ASCII, et qu'elles sont en RGB.
-//  # Par 3 colonnes et 2 lignes :
-//  3 2
-//  # Ayant 255 pour valeur maximum :
-//  data ...
-//
-//  Author:
-// 
-//    Stephane NGNEPIEPAYE WEMBE
-//
-//  Parameters:
-//
-//    Input, string OUTPUT_NAME, the name of the file.
-//
-//    Input, Matrix_image& matrix matrix of pixel.
-//
+/** \n
+*\****************************************************************************\n
+*\ \n
+*\  Purpose:\n
+*\ \n
+*\    PGMB_WRITE writes the header and data for a binary PGM file.\n
+*\ \n
+*\  example\n
+*\ \n
+*\  P3\n
+*\  # Le P3 signifie que les couleurs sont en ASCII, et qu'elles sont en RGB.\n
+*\  # Par 3 colonnes et 2 lignes :\n
+*\  3 2\n
+*\  # Ayant 255 pour valeur maximum :\n
+*\  data ...\n
+*\ \n
+*\  Author:\n
+*\ \n
+*\    Stephane NGNEPIEPAYE WEMBE\n
+*\ \n
+*\  Parameters:\n
+*\ \n
+*\    Input, string OUTPUT_NAME, the name of the file.\n
+*\ \n
+*\    Input, Matrix_image& matrix matrix of pixel.\n
+*\ \n
+*/
 {
   ofstream output;
   int i;
@@ -246,25 +257,28 @@ void pgmb_write ( string output_name, Matrix_image& matrix)
   return;
 }
 
+//****************************************************************************
 
-void pgmb_write_data ( ofstream &output, Matrix_image& matrix)
+void pgmb_write_data ( ofstream &output, const Matrix_image& matrix)
 
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    PGMB_WRITE_DATA writes the data for a binary PGM file.
-//
-//  Author:
-//
-//    Stephane NGNEPIEPAYE WEMBE
-//
-//  Parameters:
-//
-//    Input, ofstream &OUTPUT, a pointer to the file.
-//
-//    Input, Matrix_image& matrix matrix of pixel.
-//
+/** \n
+*\****************************************************************************\n
+*\ \n
+*\  Purpose:\n
+*\ \n
+*\    PGMB_WRITE_DATA writes the data for a binary PGM file.\n
+*\ \n
+*\  Author:\n
+*\ \n
+*\    Stephane NGNEPIEPAYE WEMBE\n
+*\ \n
+*\  Parameters:\n
+*\ \n
+*\    Input, ofstream &OUTPUT, a pointer to the file.\n
+*\ \n
+*\    Input, Matrix_image& matrix matrix of pixel.\n
+*\ \n
+*/
 {
   int i;
   int j;
@@ -280,28 +294,32 @@ void pgmb_write_data ( ofstream &output, Matrix_image& matrix)
   return;
 }
 
-void pgmb_write_header ( ofstream &output, string output_name, Matrix_image& matrix, unsigned int maxg)
+//****************************************************************************
 
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    PGMB_WRITE_HEADER writes the header of a binary PGM file.
-//
-//  Author:
-//
-//    Stephane NGNEPIEPAYE WEMBE
-//
-//  Parameters:
-//
-//    Input, ofstream &OUTPUT, a pointer to the file.
-//
-//    Input, string OUTPUT_NAME, the name of the file.
-//
-//    Input, Matrix_image& matrix matrix of pixel.
-//
-//    Input, unsigned int MAXG, the maximum gray value.
-//
+void pgmb_write_header ( ofstream &output, const string output_name, const Matrix_image& matrix, const unsigned int maxg)
+
+/** \n
+*\****************************************************************************80\n
+*\ \n
+*\  Purpose:\n
+*\ \n
+*\    PGMB_WRITE_HEADER writes the header of a binary PGM file.\n
+*\ \n
+*\  Author:\n
+*\ \n
+*\    Stephane NGNEPIEPAYE WEMBE\n
+*\ \n
+*\  Parameters:\n
+*\ \n
+*\    Input, ofstream &OUTPUT, a pointer to the file.\n
+*\ \n
+*\    Input, string OUTPUT_NAME, the name of the file.\n
+*\ \n
+*\    Input, Matrix_image& matrix matrix of pixel.\n
+*\ \n
+*\    Input, unsigned int MAXG, the maximum gray value.\n
+*\ \n
+*/
 {
   output << "P5\n";
   output << "# " << output_name << " created by PGMB_IO::PGMB_WRITE.\n";

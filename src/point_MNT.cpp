@@ -32,7 +32,7 @@ Point::Point(float lat, float longi,float level) : p_lat(lat), p_longi(longi), p
 
 //****************************************************************************
 
-Point::~Point(){
+Point::~Point()
 
 /** \n
 *\****************************************************************************\n
@@ -50,12 +50,13 @@ Point::~Point(){
 *\    No parameter\n
 *\ \n
 */
+{
   // Nothing to destroy.
 }
 
 //****************************************************************************
 
-istream& operator>>(std::istream& stream, Point& p){
+istream& operator>>(std::istream& stream, Point& p)
 
 /** \n
 *\****************************************************************************\n
@@ -74,8 +75,8 @@ istream& operator>>(std::istream& stream, Point& p){
 *\    \n
 *\    Input, Point& p, point which will containt the reading data.\n
 *\ \n
-
 */
+{
   string s;
   // We use getline() with some custom delimiters
   getline(stream, s) >> p.p_lat;

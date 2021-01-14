@@ -148,8 +148,8 @@ void readdata(const string& file_name, vector<Point>& v_Point)
           break; // ...the reading is finish
         }
         v_Point.push_back(*p);
-        cout <<"lecture de : "<< file_name << endl;
-        //cout << p->p_longi << endl;
+       // cout <<"lecture de : "<< file_name << endl;
+
     }
     f.close();
     cout << "reading completed" <<endl;
@@ -292,7 +292,7 @@ void setup_value_pixel(Matrix_image& matrix, vector<Point>& v_Point)
         i = v_Point[k].p_i;
         j = v_Point[k].p_j;
 
-        cout << "running please wait i = "<<i<<", j = "<<j<<endl;
+        //cout << "running please wait i = "<<i<<", j = "<<j<<endl;
 
         val = abs (v_Point[k].p_level);
         matrix.tab_pixel[j][i].set_val (val);
